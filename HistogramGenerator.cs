@@ -6,6 +6,8 @@ namespace HistogramGenerator
 {
     static class HistogramGenerator
     {
+        public static IEnumerable<HistogramItem<T>> GetHistogram<T>(IEnumerable<T> stream, IStreamPreprocessor<T> filter)
+            => Tree<T>.Build(filter.Process(stream)).GenerateHistogram();
         public static IEnumerable<HistogramItem<T>> GetHistogram<T>(IEnumerable<IEnumerable<T>> stream)
             => Tree<T>.Build(stream).GenerateHistogram();
 
