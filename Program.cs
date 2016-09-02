@@ -48,7 +48,7 @@ namespace HistogramGenerator
             for (int i = 0; i < repetitions; i++)
             {
                 var watch = Stopwatch.StartNew();
-                histogram = HistogramGenerator.GetHistogram(text, StreamPreprocessors.GetTextPreprocessor);
+                histogram = HistogramGenerator.GetHistogram(text, StreamPreprocessors.DefaultTextPreprocessor);
                 watch.Stop();
                 time += watch.ElapsedMilliseconds;
             }
@@ -65,7 +65,7 @@ namespace HistogramGenerator
                     Console.WriteLine();
                 }
 
-                Console.WriteLine($"Text is {text.Length:#,###,##0} characters / {StreamPreprocessors.GetTextPreprocessor.Process(text).Count() :#,###,##0} long.");
+                Console.WriteLine($"Text is {text.Length:#,###,##0} characters / {StreamPreprocessors.DefaultTextPreprocessor.Process(text).Count() :#,###,##0} long.");
                 Console.WriteLine($"Total words in histogram: {histogram.Sum(h => h.Count)::#,###,##0}");
             }
 

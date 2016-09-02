@@ -13,7 +13,7 @@ namespace HistogramGenerator
 
     public static class StreamPreprocessors
     {
-        public static readonly IStreamPreprocessor<char> GetTextPreprocessor = new TextPreprocessor();
+        public static readonly IStreamPreprocessor<char> DefaultTextPreprocessor = new TextPreprocessor();
 
         private class TextPreprocessor: IStreamPreprocessor<char>
         {
